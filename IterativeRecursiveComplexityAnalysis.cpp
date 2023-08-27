@@ -48,7 +48,15 @@ int sumatoriaRecursiva(int n){
 int sumatoriaDirecta(int n){
   return (n * (n + 1)) / 2;
 }
-
+// this runs in O(n) time complexity because we have a for loop that iterates n times and we have a constant operation inside the for loop
+int linear_search(const std::vector<int> &v, int target){
+    for(int i = 0; i < v.size(); i++){
+        if(v[i] == target){
+            return i;
+        }
+    }
+    return -1;
+}
 
 int main(){
   std::ifstream file("example.txt");
@@ -79,3 +87,4 @@ int main(){
 
   return 0;
 }
+
