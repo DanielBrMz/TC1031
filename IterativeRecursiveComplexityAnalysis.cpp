@@ -12,6 +12,12 @@
 // T(2) = T(1) + 1
 // T(1) = 1
 // T(n) = T(n - 1) + 1 = T(n - 2) + 1 + 1 = T(n - 3) + 1 + 1 + 1 = ... = T(1) + 1 + 1 + ... + 1 = 1 + (n - 1) = n
+int sumatoriaIterativa(int n){
+  int suma = 0;
+  for (int i = 1; i <= n; i++)
+    suma += i;
+  return suma;
+}
 
 
 // Este algoritmo tiene una complejidad de O(n) ya que la funcion se llama a si misma n veces y cada vez que se llama se hace una operacion constante (n + sumatoriaRecursiva(n - 1)) por lo que la complejidad es O(n) * O(1) = O(n)
