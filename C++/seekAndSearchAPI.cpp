@@ -22,7 +22,6 @@ std::vector<int> ordenamientoIntercambio(std::vector<int> vector){
 
 int main() {
     crow::SimpleApp app;
-
    
     CROW_ROUTE(app, "/ordenamientoIntercambio").methods("POST"_method)
         ([](const auto& req)
