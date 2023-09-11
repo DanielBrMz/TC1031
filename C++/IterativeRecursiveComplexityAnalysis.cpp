@@ -12,6 +12,7 @@
 // T(2) = T(1) + 1
 // T(1) = 1
 // T(n) = T(n - 1) + 1 = T(n - 2) + 1 + 1 = T(n - 3) + 1 + 1 + 1 = ... = T(1) + 1 + 1 + ... + 1 = 1 + (n - 1) = n
+
 int sumatoriaIterativa(int n){
   int suma = 0;
   for (int i = 1; i <= n; i++)
@@ -29,6 +30,7 @@ int sumatoriaIterativa(int n){
 // T(2) = T(1) + 1
 // T(1) = 1
 // T(n) = T(n - 1) + 1 = T(n - 2) + 1 + 1 = T(n - 3) + 1 + 1 + 1 = ... = T(1) + 1 + 1 + ... + 1 = 1 + (n - 1) = n
+
 int sumatoriaRecursiva(int n){
   if (n == 1)
     return 1;
@@ -45,21 +47,13 @@ int sumatoriaRecursiva(int n){
 // T(2) = 1
 // T(1) = 1
 // T(n) = 1 = 1 = 1 = ... = 1 = 1
+
 int sumatoriaDirecta(int n){
   return (n * (n + 1)) / 2;
 }
-// this runs in O(n) time complexity because we have a for loop that iterates n times and we have a constant operation inside the for loop
-int linear_search(const std::vector<int> &v, int target){
-    for(int i = 0; i < v.size(); i++){
-        if(v[i] == target){
-            return i;
-        }
-    }
-    return -1;
-}
 
 int main(){
-  std::ifstream file("example.txt");
+  std::ifstream file("input.txt");
   std::string line;
 
   std::vector<int> iterativeResults, recursiveResults, directResults;
@@ -87,5 +81,3 @@ int main(){
 
   return 0;
 }
-
-// This code was done by Daniel 

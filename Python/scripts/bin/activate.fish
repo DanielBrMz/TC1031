@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/brmz/Documents/Projects/Scripts/scripts"
+set -gx VIRTUAL_ENV "/home/brmz/Documents/Projects/TC1031/Python/scripts"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
