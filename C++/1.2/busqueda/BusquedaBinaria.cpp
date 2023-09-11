@@ -1,20 +1,19 @@
 #include "BusquedaBinaria.h"
 #include <vector>
 
-int busqBinaria(std::vector<int>& numeros, int dato, int& iteraciones) {
-    int left = 0;
-    int right = numeros.size() - 1;
-    iteraciones = 0;
-    while (left <= right) { // O(log n) porque se divide el problema a la mitad en cada iteración
+int busquedaBinaria(std::vector<int>& numeros, int dato, int& iteraciones) {
+    iteraciones = 0; // Inicializa iteraciones en 0
+    int inicio = 0; // Inicializa inicio en 0
+    int fin = numeros.size() - 1; // Inicializa fin en el tamaño del vector - 1
+    while (inicio <= fin) { // O(log n)
         iteraciones++; // O(1)
-        int mid = left + (right - left) / 2; // O(1)
+        int mid = (inicio + fin) / 2; // O(1)
         if (numeros[mid] == dato) { // O(1)
             return mid; // O(1)
-        }
-        if (numeros[mid] < dato) { // O(1)
-            left = mid + 1; // O(1)
+        } else if (numeros[mid] < dato) { // O(1)
+            inicio = mid + 1; // O(1)
         } else {
-            right = mid - 1; // O(1)
+            fin = mid - 1; // O(1)
         }
     }
     return -1; // O(1)

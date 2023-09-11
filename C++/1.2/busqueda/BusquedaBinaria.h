@@ -2,4 +2,4 @@
 
 #include <vector>
 
-int busqBinaria(std::vector<int>& numeros, int dato, int& iteraciones);
+int busquedaBinaria(std::vector<int>& numeros, int dato, int& iteraciones);
