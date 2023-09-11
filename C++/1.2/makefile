@@ -5,25 +5,33 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
 # Definir los archivos objeto
-OBJ = main.o OrdenaBurbuja.o
+OBJ = main.o OrdenaBurbuja.o OrdenaIntercambio.o OrdenaMerge.o BusquedaSecuencial.o BusquedaBinaria.o
 
 # Regla por defecto
-all: main run
+all: main
 
 # Reglas para los archivos objeto
-main.o: main.cpp OrdenaBurbuja.h BusquedaBinaria.h BusquedaSecuencial.h OrdenaIntercambio.h OrdenaMerge.h
+main.o: main.cpp ordenamiento/OrdenaBurbuja.h ordenamiento/OrdenaIntercambio.h ordenamiento/OrdenaMerge.h busqueda/searching/BusquedaSecuencial.h busqueda/BusquedaBinaria.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
-OrdenaBurbuja.o: OrdenaBurbuja.cpp OrdenaBurbuja.h
-	$(CXX) $(CXXFLAGS) -c OrdenaBurbuja.cpp
+OrdenaBurbuja.o: ordenamiento/OrdenaBurbuja.cpp ordenamiento/OrdenaBurbuja.h
+	$(CXX) $(CXXFLAGS) -c ordenamiento/OrdenaBurbuja.cpp
+
+OrdenaIntercambio.o: ordenamiento/OrdenaIntercambio.cpp ordenamiento/OrdenaIntercambio.h
+	$(CXX) $(CXXFLAGS) -c ordenamiento/OrdenaIntercambio.cpp
+
+OrdenaMerge.o: ordenamiento/OrdenaMerge.cpp ordenamiento/OrdenaMerge.h
+	$(CXX) $(CXXFLAGS) -c ordenamiento/OrdenaMerge.cpp
+
+BusquedaSecuencial.o: busqueda/searching/BusquedaSecuencial.cpp busqueda/searching/BusquedaSecuencial.h
+	$(CXX) $(CXXFLAGS) -c busqueda/searching/BusquedaSecuencial.cpp
+
+BusquedaBinaria.o: busqueda/BusquedaBinaria.cpp busqueda/BusquedaBinaria.h
+	$(CXX) $(CXXFLAGS) -c busqueda/BusquedaBinaria.cpp
 
 # Regla para el ejecutable
 main: $(OBJ)
 	$(CXX) $(CXXFLAGS) -o main $(OBJ)
-
-# Regla para ejecutar el programa
-run:
-	./main
 
 # Regla para limpiar los archivos objeto y el ejecutable
 clean:
