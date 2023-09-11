@@ -1,6 +1,19 @@
 #include "OrdenaMerge.h"
 #include <vector>
 
+
+/* Este algoritmo tiene una complejidad de O(n log n) en tiempo y O(n) en espacio.
+ * 
+ * Complejidad temporal:
+ * - Mejor caso: O(n log n)
+ * - Caso promedio: O(n log n)
+ * - Peor caso: O(n log n)
+ * 
+ * Complejidad espacial:
+ * - Mejor caso: O(n)
+ * - Caso promedio: O(n)
+ * - Peor caso: O(n)
+*/
 int ordenaMerge(std::vector<int>& numeros) {
     int comparaciones = 0; // Inicializa comparaciones en 0
     if (numeros.size() > 1) { // O(1)
