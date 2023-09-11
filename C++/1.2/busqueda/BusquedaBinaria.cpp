@@ -1,4 +1,5 @@
 #include "BusquedaBinaria.h"
+#include <vector>
 
 int busqBinaria(std::vector<int>& numeros, int dato, int& iteraciones) {
     int left = 0;

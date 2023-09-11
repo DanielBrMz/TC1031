@@ -2,4 +2,4 @@
 
 #include <vector>
 
-void ordenaMerge(std::vector<int>& numeros);
+void ordenaMergeComparaciones(std::vector<int>& numeros);

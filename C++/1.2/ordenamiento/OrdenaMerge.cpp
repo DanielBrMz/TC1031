@@ -1,60 +1,7 @@
 #include "OrdenaMerge.h"
-
-void merge(std::vector<int>& numeros, int left, int mid, int right) {
-    int i, j, k;
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    std::vector<int> L(n1), R(n2);
-
-    for (i = 0; i < n1; i++)
-        L[i] = numeros[left + i];
-    for (j = 0; j < n2; j++)
-        R[j] = numeros[mid + 1 + j];
-
-    i = 0;
-    j = 0;
-    k = left;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            numeros[k] = L[i];
-            i++;
-        } else {
-            numeros[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) {
-        numeros[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        numeros[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
-void ordenaMerge(std::vector<int>& numeros, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-
-        ordenaMerge(numeros, left, mid);
-        ordenaMerge(numeros, mid + 1, right);
-
-        merge(numeros, left, mid, right);
-    }
-}
-
-void ordenaMerge(std::vector<int>& numeros) {
-    ordenaMerge(numeros, 0, numeros.size() - 1);
-}
 #include <vector>
 
+// La función merge tiene una complejidad de tiempo de O(n)
 void merge(std::vector<int>& numeros, int left, int mid, int right, int& comparaciones) {
     int i, j, k;
     int n1 = mid - left + 1; // O(1)
@@ -95,19 +42,29 @@ void merge(std::vector<int>& numeros, int left, int mid, int right, int& compara
     }
 }
 
-void ordenaMerge(std::vector<int>& numeros, int left, int right, int& comparaciones) {
-    if (left < right) { // O(1)
-        int mid = left + (right - left) / 2; // O(1)
+int ordenaMerge(std::vector<int>& numeros, int left, int right, int& comparaciones) {
+    int inversiones = 0; // Inicializa inversiones en 0
 
-        ordenaMerge(numeros, left, mid, comparaciones); // T(n/2)
-        ordenaMerge(numeros, mid + 1, right, comparaciones); // T(n/2)
+    if (left < right) {
+        int mid = left + (right - left) / 2;
 
-        merge(numeros, left, mid, right, comparaciones); // T(n), donde T(n) es el tiempo de la función merge
+        inversiones += ordenaMerge(numeros, left, mid, comparaciones);
+        inversiones += ordenaMerge(numeros, mid + 1, right, comparaciones);
+
+        merge(numeros, left, mid, right, comparaciones);
+
+        comparaciones += inversiones; // Agrega las inversiones al total de comparaciones
     }
+
+    return inversiones; // Devuelve el total de inversiones
 }
 
-int ordenaMerge(std::vector<int>& numeros) {
-    int comparaciones = 0; // O(1)
-    ordenaMerge(numeros, 0, numeros.size() - 1, comparaciones); // T(n), donde T(n) es el tiempo de la función ordenaMerge
-    return comparaciones; // O(1)
+
+
+int ordenaMergeComparaciones(std::vector<int>& numeros) {
+    int comparaciones = 0;
+    ordenaMerge(numeros, 0, numeros.size() - 1, comparaciones);
+    return comparaciones;
 }
+
+

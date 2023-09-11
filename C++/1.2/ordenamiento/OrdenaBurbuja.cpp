@@ -1,4 +1,5 @@
 #include "OrdenaBurbuja.h"
+#include <vector>
 
 int ordenaBurbuja(std::vector<int>& numeros) {
     int n = numeros.size();

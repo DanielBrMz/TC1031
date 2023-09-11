@@ -11,7 +11,7 @@ OBJ = main.o OrdenaBurbuja.o OrdenaIntercambio.o OrdenaMerge.o BusquedaSecuencia
 all: main
 
 # Reglas para los archivos objeto
-main.o: main.cpp ordenamiento/OrdenaBurbuja.h ordenamiento/OrdenaIntercambio.h ordenamiento/OrdenaMerge.h busqueda/searching/BusquedaSecuencial.h busqueda/BusquedaBinaria.h
+main.o: main.cpp ordenamiento/OrdenaBurbuja.h ordenamiento/OrdenaIntercambio.h ordenamiento/OrdenaMerge.h busqueda/BusquedaSecuencial.h busqueda/BusquedaBinaria.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 OrdenaBurbuja.o: ordenamiento/OrdenaBurbuja.cpp ordenamiento/OrdenaBurbuja.h
@@ -23,8 +23,8 @@ OrdenaIntercambio.o: ordenamiento/OrdenaIntercambio.cpp ordenamiento/OrdenaInter
 OrdenaMerge.o: ordenamiento/OrdenaMerge.cpp ordenamiento/OrdenaMerge.h
 	$(CXX) $(CXXFLAGS) -c ordenamiento/OrdenaMerge.cpp
 
-BusquedaSecuencial.o: busqueda/searching/BusquedaSecuencial.cpp busqueda/searching/BusquedaSecuencial.h
-	$(CXX) $(CXXFLAGS) -c busqueda/searching/BusquedaSecuencial.cpp
+BusquedaSecuencial.o: busqueda/BusquedaSecuencial.cpp busqueda/BusquedaSecuencial.h
+	$(CXX) $(CXXFLAGS) -c busqueda/BusquedaSecuencial.cpp
 
 BusquedaBinaria.o: busqueda/BusquedaBinaria.cpp busqueda/BusquedaBinaria.h
 	$(CXX) $(CXXFLAGS) -c busqueda/BusquedaBinaria.cpp

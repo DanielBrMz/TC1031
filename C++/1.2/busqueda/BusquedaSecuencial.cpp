@@ -1,4 +1,5 @@
 #include "BusquedaSecuencial.h"
+#include <vector>
 
 int busqSecuencial(std::vector<int>& numeros, int dato, int& iteraciones) {
     int n = numeros.size();

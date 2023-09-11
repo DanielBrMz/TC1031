@@ -1,4 +1,5 @@
 #include "OrdenaIntercambio.h"
+#include <vector>
 
 int ordenaIntercambio(std::vector<int>& numeros) {
     int n = numeros.size(); // O(1)
