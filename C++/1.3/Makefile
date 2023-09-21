@@ -23,7 +23,11 @@ $(EXECUTABLE): $(OBJECTS)
 
 run: $(EXECUTABLE)
 	clear
+ifeq ($(OS),Windows_NT)
+	$(EXECUTABLE)
+else
 	./$(EXECUTABLE)
+endif
 
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
