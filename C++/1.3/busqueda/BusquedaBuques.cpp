@@ -14,19 +14,19 @@
 */
 // Función para realizar una búsqueda binaria en el vector de buques
 bool buscarBuque(const std::vector<Buque>& buques, const std::string& serieABuscar) {
-    int inicio = 0;
-    int fin = buques.size() - 1;
+    int inicio = 0; // O(1)
+    int fin = buques.size() - 1; // O(1)
 
-    while (inicio <= fin) {
-        int mid = inicio + (fin - inicio) / 2;
-        if (buques[mid].ubi.substr(0, 3) == serieABuscar) {
-            return true;
-        } else if (buques[mid].ubi < serieABuscar) {
-            inicio = mid + 1;
+    while (inicio <= fin) { // O(log n)
+        int mid = inicio + (fin - inicio) / 2; // O(1)
+        if (buques[mid].ubi.substr(0, 3) == serieABuscar) { // O(1)
+            return true; // O(1)
+        } else if (buques[mid].ubi < serieABuscar) { // O(1)
+            inicio = mid + 1; // O(1)
         } else {
-            fin = mid - 1;
+            fin = mid - 1; // O(1)
         }
     }
 
-    return false;
+    return false; // O(1)
 }

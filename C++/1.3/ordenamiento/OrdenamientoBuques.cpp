@@ -12,52 +12,54 @@
  * - Caso promedio: O(n)
  * - Peor caso: O(n)
 */
-void merge(std::vector<Buque>& arr, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
 
-    std::vector<Buque> leftArr(n1);
-    std::vector<Buque> rightArr(n2);
+void merge(std::vector<Buque>& arr, int inicio, int mid, int fin) {
+    int n1 = mid - inicio + 1; // O(1)
+    int n2 = fin - mid; // O(1)
 
-    for (int i = 0; i < n1; i++) {
-        leftArr[i] = arr[left + i];
+    std::vector<Buque> inicioArray(n1); // O(n)
+    std::vector<Buque> finalArray(n2); // O(n)
+
+    for (int i = 0; i < n1; i++) { // O(n)
+        inicioArray[i] = arr[inicio + i]; // O(1)
     }
-    for (int i = 0; i < n2; i++) {
-        rightArr[i] = arr[mid + 1 + i];
+    for (int i = 0; i < n2; i++) { // O(n)
+        finalArray[i] = arr[mid + 1 + i]; // O(1)
     }
 
-    int i = 0, j = 0, k = left;
+    int i = 0, j = 0, k = inicio;
 
-    while (i < n1 && j < n2) {
-        if (leftArr[i].ubi + leftArr[i].fecha <= rightArr[j].ubi + rightArr[j].fecha) {
-            arr[k] = leftArr[i];
+    while (i < n1 && j < n2) { // O(n)
+        if (inicioArray[i].ubi + inicioArray[i].fecha <= finalArray[j].ubi + finalArray[j].fecha) { // O(1)
+            arr[k] = inicioArray[i]; // O(1)
             i++;
         } else {
-            arr[k] = rightArr[j];
+            arr[k] = finalArray[j]; // O(1)
             j++;
         }
         k++;
     }
 
-    while (i < n1) {
-        arr[k] = leftArr[i];
+    while (i < n1) { // O(n)
+        arr[k] = inicioArray[i]; // O(1)
         i++;
         k++;
     }
 
-    while (j < n2) {
-        arr[k] = rightArr[j];
+    while (j < n2) { // O(n)
+        arr[k] = finalArray[j]; // O(1)
         j++;
         k++;
     }
 }
 
-// Función para realizar Merge Sort
-void ordenamientoMerge(std::vector<Buque>& arr, int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-        ordenamientoMerge(arr, left, mid);
-        ordenamientoMerge(arr, mid + 1, right);
-        merge(arr, left, mid, right);
+void ordenamientoBuques(std::vector<Buque>& arr, int inicio, int fin) {
+    if (inicio < fin) { // O(1)
+        int mid = inicio + (fin - inicio) / 2; // O(1)
+        ordenamientoBuques(arr, inicio, mid); // T(n/2)
+        ordenamientoBuques(arr, mid + 1, fin); // T(n/2)
+        merge(arr, inicio, mid, fin); // O(n)
     }
 }
+
+// Suma de complejidades: O(n log n) porque T(n) = 2T(n/2) + O(n) = O(n log n)

@@ -1,31 +1,40 @@
-# Source files
+# Archivos fuente
 SOURCES = main.cpp ordenamiento/OrdenamientoBuques.cpp busqueda/BusquedaBuques.cpp
 
-# Object files
-OBJECTS = $(SOURCES:.cpp=.o)
+# Archivos objeto
+OBJECTS = $(addprefix output/, $(notdir $(SOURCES:.cpp=.o)))
 
-# Executable name
+# Nombre del ejecutable
 EXECUTABLE = main
 
-# Compiler
+# Compilador
 CC = g++
 
-# Compiler flags
+# Flags del compilador
 CFLAGS = -Wall -Wextra -std=c++11
 
-all: $(EXECUTABLE)
+all: output $(EXECUTABLE)
+
+output:
+	mkdir -p output
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(OBJECTS)
+	$(CC) $(CFLAGS) -o output/$(EXECUTABLE) $(OBJECTS)
 
-%.o: %.cpp
+output/%.o: ordenamiento/%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+output/%.o: busqueda/%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+output/%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(EXECUTABLE)
 	clear
-	./$(EXECUTABLE)
+	./output/$(EXECUTABLE)
 
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
+	rm -f output/*.o $(EXECUTABLE)
 
-.PHONY: all run clean
+.PHONY: all run clean output

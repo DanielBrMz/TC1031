@@ -4,6 +4,43 @@
 #include <string>
 #include "Buque.h"
 
+/*
+    * Este programa utiliza los algoritmos de ordenamiento Merge Sort y búsqueda binaria 
+    * implementados en el archivo OrdenamientoBuques.cpp y BusquedaBuques.cpp
+    * para ordenar y buscar buques en un archivo de entrada.
+    * 
+    * El programa lee un archivo de entrada indicado por el usuario con el siguiente formato:
+    * - Fecha (formato dd/mm/aaaa)
+    * - Hora (formato hh:mm)
+    * - Punto de entrada (un caracter)
+    * - UBI (formato XXX-NNNNNN-ZZ)
+    * 
+    * El programa ordena los buques por fecha y hora de entrada, y luego realiza una búsqueda
+    * binaria en los buques para encontrar los buques de una serie indicada por el usuario.
+    * 
+    * El programa imprime los buques de la serie indicada por el usuario en la consola.
+    * 
+    * Complejidad temporal:
+    * Ordenamiento: O(n log n)
+    * Búsqueda: O(log n)
+    * 
+    * Complejidad espacial:
+    * Ordenamiento: O(n)
+    * Búsqueda: O(1)
+    * 
+    * Nota: El programa espera que el archivo de texto tenga el formato correcto.
+    * 
+    * Autor: Daniel Alfredo Barreras Meraz
+    * Matrícula: A01254805
+    * Fecha: 21 de septiembre de 2023
+*/
+
+/*
+    Pasos para compilar y ejecutar uel programa tilizando make:
+    Compilar: make
+    Ejecutar: make run
+*/
+
 int main() {
     std::string nombreArchivo;
     std::cout << "Ingrese el nombre del archivo de entrada: ";
@@ -24,7 +61,7 @@ int main() {
     }
 
     // Ordenar buques usando Merge Sort
-    ordenamientoMerge(buques, 0, buques.size() - 1);
+    ordenamientoBuques(buques, 0, buques.size() - 1);
 
     std::string serieABuscar;
     std::cout << "Ingrese la serie a buscar (los primeros tres caracteres del UBI): ";

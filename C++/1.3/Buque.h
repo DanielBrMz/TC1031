@@ -12,7 +12,7 @@ struct Buque {
     std::string ubi;
 };
 
-void ordenamientoMerge(std::vector<Buque>& arr, int left, int right);
+void ordenamientoBuques(std::vector<Buque>& arr, int left, int right);
 bool buscarBuque(const std::vector<Buque>& buques, const std::string& serieABuscar);
 
 #endif // BUQUE_H
