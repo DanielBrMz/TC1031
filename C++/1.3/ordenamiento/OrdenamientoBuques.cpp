@@ -1,5 +1,17 @@
 #include "../Buque.h"
 
+/* Este algoritmo tiene una complejidad de O(n log n) en tiempo y O(n) en espacio.
+ * 
+ * Complejidad temporal:
+ * - Mejor caso: O(n log n)
+ * - Caso promedio: O(n log n)
+ * - Peor caso: O(n log n)
+ * 
+ * Complejidad espacial:
+ * - Mejor caso: O(n)
+ * - Caso promedio: O(n)
+ * - Peor caso: O(n)
+*/
 void merge(std::vector<Buque>& arr, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;

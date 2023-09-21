@@ -1,25 +1,31 @@
-# Nombre del archivo fuente
-SOURCE = main.cpp
+# Source files
+SOURCES = main.cpp ordenamiento/OrdenamientoBuques.cpp busqueda/BusquedaBuques.cpp
 
-# Nombre del ejecutable
+# Object files
+OBJECTS = $(SOURCES:.cpp=.o)
+
+# Executable name
 EXECUTABLE = main
 
-# Compilador a usar
+# Compiler
 CC = g++
 
-# Flags para el compilador
+# Compiler flags
 CFLAGS = -Wall -Wextra -std=c++11
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(SOURCE)
-	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(SOURCE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(OBJECTS)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(EXECUTABLE)
 	clear
 	./$(EXECUTABLE)
 
 clean:
-	rm -f $(EXECUTABLE)
+	rm -f $(OBJECTS) $(EXECUTABLE)
 
 .PHONY: all run clean
