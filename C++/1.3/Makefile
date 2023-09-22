@@ -23,3 +23,6 @@ clean:
 	rm -f $(EXECUTABLE)
 
 .PHONY: all run clean
+
+# avoid closing the terminal after execution
+.SILENT: run
