@@ -80,15 +80,17 @@ int main() {
     std::cout << "Comparaciones intercambio, burbuja, merge:" << std::endl; // O(1)
     std::cout << comparacionesIntercambio << " " << comparacionesBurbuja << " " << comparacionesMerge << std::endl << std::endl; // O(1)
     
-    int q; // Inicializa q
+    std::getline(file, line);
+    int q  = std::stoi(line); // Inicializa q
     
     std::cout << "Posicion, iteraciones secuencial, iteraciones binaria:" << std::endl; // O(1)
-    while(std::getline(file, line)) { // O(q)
-        q = std::stoi(line); // Lee q
+    for (int j = 0; j < q; j++) { // O(q)
+        std::getline(file, line);
+        int dato = std::stoi(line); // Lee q
         int iteracionesSecuencial; // Inicializa iteracionesSecuencial
-        int posicionSecuencial = busquedaSecuencial(numeros, q, iteracionesSecuencial); // O(n)
+        int posicionSecuencial = busquedaSecuencial(numeros, dato, iteracionesSecuencial); // O(n)
         int iteracionesBinaria; // Inicializa iteracionesBinaria
-        busquedaBinaria(numeros, q, iteracionesBinaria); // O(log n)
+        busquedaBinaria(numeros, dato, iteracionesBinaria); // O(log n)
         std::cout << posicionSecuencial << " " << iteracionesSecuencial << " " << iteracionesBinaria << std::endl; // O(1)
     }
 
