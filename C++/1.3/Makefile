@@ -43,4 +43,11 @@ endif
 clean:
 	rm -f output/*.o $(EXECUTABLE)
 
+<<<<<<< HEAD
+.PHONY: all run clean
+
+# avoid closing the terminal after execution
+.SILENT: run
+=======
 .PHONY: all run clean output
+>>>>>>> c37c633d74d0873fa371d57a4d7291d34d5fead0
