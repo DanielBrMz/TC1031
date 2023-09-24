@@ -6,7 +6,6 @@
 
 
 //TODO: 
-// 3.- Realizar analisis de complejidad de los metodos CRUD
 // 4.- Casos de prueba 
 
 class Nodo{
@@ -53,7 +52,11 @@ class LinkedList{
                     insertarFinal(std::stoi(dato));
                 }
             }
-
+            // La complejidad del código es O(n^2), donde n es el número de líneas en el fichero de entrada. Esto se debe a que el código 
+            // realiza dos bucles anidados para leer el fichero y crear la lista enlazada. El primer bucle lee cada línea del fichero y la almacena en un vector, 
+            // lo que implica n iteraciones. El segundo bucle recorre el vector y llama a la función `insertarFinal` para cada dato, lo que implica n iteraciones más. 
+            // La función `insertarFinal` tiene una complejidad de O(n), como se explicó anteriormente, por lo que el segundo bucle tiene una complejidad de O(n^2). 
+            // La suma de las complejidades de los dos bucles es O(n + n^2), que se simplifica a O(n^2), que es la complejidad del código. 
         }
 
         // Guardar la lista enlazada en un fichero
@@ -66,6 +69,10 @@ class LinkedList{
                 temp = temp->next;
             }
             ficheroSalida.close();
+
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada.
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para guardar los datos,
+            // lo que implica n iteraciones en el peor caso.
         }
 
 
@@ -80,6 +87,10 @@ class LinkedList{
                 temp = temp->next;
             }
             return nullptr;
+
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada.
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para buscar un nodo con un valor de datos específico,
+            // lo que implica n iteraciones en el peor caso.
         }
 
         // Insertar \ Crear un nodo al inicio
@@ -87,6 +98,9 @@ class LinkedList{
             Nodo *newNodo = new Nodo(data);
             newNodo->next = head;
             head = newNodo;
+
+            // La complejidad del código es O(1), ya que el código inserta un nuevo nodo al inicio de la lista enlazada,
+            // lo que implica una sola iteración, independientemente del número de nodos en la lista enlazada.
         }
 
         // Insertar \ Crear un nodo al final
@@ -101,6 +115,9 @@ class LinkedList{
                 }
                 temp->next = newNodo;
             }
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada. 
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para insertar un nuevo nodo al final, 
+            // lo que implica n iteraciones en el peor caso.
         }
 
 
@@ -145,9 +162,12 @@ class LinkedList{
             }else{
                 std::cout<<"El nodo no existe"<<std::endl;
             }
+            // Este bloque de codigo de update es de complejidad O(n) debido a que se ejecuta una vez pero
+            // como llamamos a la funcion buscar() que es de complejidad O(n) entonces la complejidad de update es O(n)
+            // Estamos reutilizando y eficientando el codigo de buscar() para update() y ahorrar espacio en memoria.
         }
 
-        //borrar un nodo
+        // Eliminar un nodo
         bool eliminar(int data){
             Nodo *nodo = buscar(data);
             if(nodo != nullptr){
@@ -167,9 +187,12 @@ class LinkedList{
                 std::cout<<"El nodo no existe"<<std::endl;
                 return false;
             }
+            // Este bloque de codigo de eliminar es de complejidad O(n) debido a que se ejecuta una vez pero
+            // como llamamos a la funcion buscar() y tambien hay un while cuando se selecciona else entonces la complejidad de eliminar es O(n)
+            // Esto debido a que como los while son procedurales y no estan uno dentro del otro entonces la complejidad es O(n)
         }
 
-        // eliminar un nodo del inicio
+        // Eliminar un nodo del inicio
         bool eliminarInicio(){
             if(head != nullptr){
                 Nodo *temp = head;
@@ -180,9 +203,11 @@ class LinkedList{
                 std::cout<<"La list esta vacia"<<std::endl;
                 return false;
             }
+            // La complejidad del código es O(1), ya que el código elimina un nodo del inicio de la lista enlazada,
+            // lo que implica una sola iteración, independientemente del número de nodos en la lista enlazada.
         }
         
-        // eliminar un nodo del final
+        // Eliminar un nodo del final
         bool eliminarFinal(){
             if(head != nullptr){
                 if(head->next == nullptr){
@@ -201,6 +226,9 @@ class LinkedList{
                 std::cout<<"La list esta vacia"<<std::endl;
                 return false;
             }
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada.
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para eliminar un nodo del final,
+            // lo que implica n iteraciones en el peor caso.
         }
 
         //mostrar la list por consola
@@ -211,19 +239,30 @@ class LinkedList{
                 temp = temp->next;
             }
             std::cout<<std::endl;
+
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada.
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para mostrar los datos,
+            // lo que implica n iteraciones en el peor caso.
         }
 
         // Obtener el primer elemento de la lista enlazada
         int getPrimero(){
             return head->data;
+
+            // La complejidad del código es O(1), ya que el código obtiene el primer elemento de la lista enlazada,
+            // lo que implica una sola iteración, independientemente del número de nodos en la lista enlazada.
         }
 
         // Saber si la lista esta vacia
         bool listaVacia(){
             return head == nullptr;
+
+            // La complejidad del código es O(1), ya que el código verifica si la lista enlazada está vacía o no,
+            // lo que implica una sola iteración, independientemente del número de nodos en la lista enlazada.
         }
 
-        // borrar la lista enlazada (liberar memoria)
+
+        // Borrar la lista enlazada (liberar memoria)
         void borrar(){
             Nodo *temp = head;
             while(temp != nullptr){
@@ -231,9 +270,16 @@ class LinkedList{
                 delete(temp);
                 temp = head;
             }
+            // La complejidad del código es O(n), donde n es el número de nodos en la lista enlazada.
+            // Esto se debe a que el código recorre la lista desde el inicio hasta el final para borrar los nodos,
+            // lo que implica n iteraciones en el peor caso.
         }
 
 };
+
+
+
+
 
 
 int main(){
