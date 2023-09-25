@@ -1,3 +1,11 @@
+// Act 2.1 - Implementación de un ADT de estructura de datos lineales
+// 24/09/2023
+// Por:
+// Jorge Ivan Coronado Villegas
+// Daniel Alfredo Barreras Meraz
+// Yair Salvador Beltrán Ríos
+// Daniel Antonio Luján
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -5,9 +13,8 @@
 #include <vector>
 
 
-//TODO: 
-// 4.- Casos de prueba 
 
+// Clase Nodo para crear los nodos de la lista enlazada
 class Nodo{
     public:
         int data;
@@ -19,6 +26,8 @@ class Nodo{
     
 };
 
+
+// Clase LinkedList para crear la lista enlazada que engloba todos los metodos a utilizar
 class LinkedList{
     private:
         // Crear la referencia al primer nodo (head)
@@ -384,7 +393,7 @@ int main(){
             if(list.listaVacia()){
                 std::cout<<"\nLa lista esta vacia"<<std::endl;
             }else{
-                std::cout<<"\nlista: "<<std::endl;
+                std::cout<<"\nLista: "<<std::endl;
                 list.mostrar();
             }
 
@@ -410,13 +419,19 @@ int main(){
         }else if(opt == 8){
             list.borrar();
             std::cout<<"\nLa lista se borro"<<std::endl;
+
         // Salir del programa
         }else if(opt == 0){
 
-
-            // Guardar la lista enlazada en un fichero
-            std::cout<<"\nLista Final: "<<std::endl;
-            list.mostrar();
+            // Mostrar lista final si no esta vacia
+            if(!list.listaVacia()){
+                std::cout<<"\nLista Final: "<<std::endl;
+                list.mostrar();
+            }else{
+                std::cout<<"\nLa aplicacion finalizo con la lista vacia"<<std::endl;
+            }
+            
+            // Guardar lista en un fichero
             list.guardarLista();
             
         }else{
