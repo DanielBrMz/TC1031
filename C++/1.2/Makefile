@@ -26,7 +26,7 @@ output/OrdenaMerge.o: ordenamiento/OrdenaMerge.cpp ordenamiento/OrdenaMerge.h
 output/BusquedaSecuencial.o: busqueda/BusquedaSecuencial.cpp busqueda/BusquedaSecuencial.h
 	$(CXX) $(CXXFLAGS) -c busqueda/BusquedaSecuencial.cpp -o output/BusquedaSecuencial.o
 
-output/BusquedaBinaria.o: busqueda/BusquedaBinaria.cpp busqueda/BusquedaBinaria.h
+output/BusquedaBinaria.o: busqueda/BusquedaBinaria.cpp busqueda/BusquedaBinaria .h
 	$(CXX) $(CXXFLAGS) -c busqueda/BusquedaBinaria.cpp -o output/BusquedaBinaria.o
 
 # Regla para el ejecutable
