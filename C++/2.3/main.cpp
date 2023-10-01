@@ -91,9 +91,14 @@ int main(){
       conteoR[monthCode[barco->fecha.substr(3, 2)] + " " + barco->fecha.substr(8, 2)]++;
   }
 
-  for (const auto &par : conteoM){
-    std::cout << par.first << ' ' << par.second << ' ' << conteoR[par.first] << '\n';
+  for (const auto &month : months){
+    std::string keyM = month + " 23";
+    std::string keyR = month + " 23";
+    if (conteoM[keyM] > 0 || conteoR[keyR] > 0)
+        std::cout << month << " 23" << ' ' << conteoM[keyM] << ' ' << conteoR[keyR] << '\n';
   }
+
+
 
   return 0;
 }

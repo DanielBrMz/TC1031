@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
 # Definir el nombre del ejecutable
-EXEC = programa
+EXEC = 2.3
 
 # Definir los archivos fuente
 SRCS = main.cpp ListaEnlazada/ListaEnlazada.cpp Barco/Barco.cpp
