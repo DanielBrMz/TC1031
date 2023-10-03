@@ -1,9 +1,5 @@
 #pragma once
-
-struct Nodo {
-    int dato;
-    Nodo* siguiente;
-};
+#include "../Nodo.h"
 
 class Fila {
 private:
