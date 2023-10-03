@@ -55,30 +55,25 @@ int main() {
     }
 
     std::cout << "\nLeyendo valores en la Fila y la Pila:\n";
+    bool encontradoEnFila = fila.read();
+    bool encontradoEnPila = pila.read();
+
+    std::cout << "\n\nActualizando valores en la Fila y la Pila:\n";
     for(int i = 1; i <= 5; i++) {
-        bool encontradoEnFila = fila.read(i);
-        bool encontradoEnPila = pila.read(i);
+        fila.update(i+5);
+        pila.update(i+5);
 
-        std::cout << "El valor " << i << (encontradoEnFila ? " fue" : " no fue") << " encontrado en la fila.\n";
-        std::cout << "El valor " << i << (encontradoEnPila ? " fue" : " no fue") << " encontrado en la pila.\n";
-    }
-
-    std::cout << "\nActualizando valores en la Fila y la Pila:\n";
-    for(int i = 1; i <= 5; i++) {
-        fila.update(i, i+5);
-        pila.update(i, i+5);
-
-        std::cout << "Fila después de actualizar el nodo con valor " << i << ": ";
+        std::cout << "Fila después de actualizar el nodo con valor " << i +5 << ": ";
         fila.display();
 
-        std::cout << "Pila después de actualizar el nodo con valor " << i << ": ";
+        std::cout << "Pila después de actualizar el nodo con valor " << i +5 << ": ";
         pila.display();
     }
 
     std::cout << "\nEliminando valores en la Fila y la Pila:\n";
     for(int i = 1; i <= 5; i++) {
-        fila.del(i+5);
-        pila.del(i+5);
+        fila.del();
+        pila.del();
 
         std::cout << "Fila después de eliminar el nodo con valor " << i+5 << ": ";
         fila.display();

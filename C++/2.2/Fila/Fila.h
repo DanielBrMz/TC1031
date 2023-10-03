@@ -10,8 +10,8 @@ public:
     Fila();
 
     void create(int valor);
-    bool read(int valor);
-    void update(int valorAntiguo, int valorNuevo);
-    void del(int valor);
+    bool read();
+    void update(int valorNuevo);
+    void del();
     void display();
 };
