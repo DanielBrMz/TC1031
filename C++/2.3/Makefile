@@ -15,7 +15,7 @@ OBJS = $(addprefix output/, $(notdir $(SRCS:.cpp=.o)))
 
 # Regla para crear la carpeta output si no existe
 output:
-	mkdir -p output
+	if not exist output mkdir output || mkdir -p output
 
 # Regla para compilar el programa
 $(EXEC): output $(OBJS)
@@ -23,13 +23,12 @@ $(EXEC): output $(OBJS)
 
 # Regla para ejecutar el programa
 run: output $(EXEC)
-	if [ -z "$$OS" ]; then clear; else cls; fi
-	./output/$(EXEC)
+	cls || clear
+	output/$(EXEC)
 
 # Regla para limpiar los archivos objeto y la carpeta output
 clean:
-	rm -f $(OBJS) output/$(EXEC)
-	rmdir output
+	if [ -z "$$OS" ]; then rm -f $(OBJS) output/$(EXEC) && rmdir output; else del /Q /F $(subst /,\,$(OBJS)) output/$(EXEC) && rmdir output; fi
 
 # Regla para compilar los archivos objeto
 output/%.o: %.cpp
