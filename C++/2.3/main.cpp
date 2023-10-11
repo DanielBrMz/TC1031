@@ -22,7 +22,7 @@
  *
  * El programa imprime en pantalla la cantidad de barcos que pasaron por cada punto de entrada en cada mes.
  *
- * Complejidad temporal:
+ * Complejidad temporal:how deep
  * - Ordenamiento: O(n log n)
  * - Búsqueda: O(n)
  *
@@ -32,9 +32,9 @@
  *
  * Nota: El programa espera que el archivo de texto tenga el formato correcto.
  *
- * Autor: Daniel Alfredo Barreras Meraz
- * Matricula: A01258405
- * Fecha: 30 de septiembre de 2023
+ * Autor: El coronao
+ * Matricula: A01254785
+ * Fecha: el dia que entregues
  */
 
 /*
