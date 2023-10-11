@@ -1,43 +1,50 @@
-# Definir el compilador
+# Define the compiler
 CXX = g++
 
-# Definir los flags del compilador
+# Define the compiler flags
 CXXFLAGS = -Wall -std=c++11
 
-# Definir el nombre del ejecutable
+# Define the executable name
 EXEC = 2.3
 
-# Definir los archivos fuente
-SRCS = main.cpp ListaEnlazada/ListaEnlazada.cpp Barco/Barco.cpp
+# Define the source files
+SRCS = main.cpp BST/BST.cpp
 
-# Definir los archivos objeto
+# Define the object files
 OBJS = $(addprefix output/, $(notdir $(SRCS:.cpp=.o)))
 
-# Regla para crear la carpeta output si no existe
+# Rule to create the output folder if it doesn't exist
 output:
-	if not exist output mkdir output || mkdir -p output
+ifeq ($(OS),Windows_NT)
+	if not exist output mkdir output
+else
+	mkdir -p output
+endif
 
-# Regla para compilar el programa
+# Rule to compile the program
 $(EXEC): output $(OBJS)
 	$(CXX) $(CXXFLAGS) -o output/$(EXEC) $(OBJS)
 
-# Regla para ejecutar el programa
+# Rule to run the program
 run: output $(EXEC)
 	cls || clear
 	output/$(EXEC)
 
-# Regla para limpiar los archivos objeto y la carpeta output
+# Rule to clean object files and the output folder
 clean:
-	if [ -z "$$OS" ]; then rm -f $(OBJS) output/$(EXEC) && rmdir output; else del /Q /F $(subst /,\,$(OBJS)) output/$(EXEC) && rmdir output; fi
+ifeq ($(OS),Windows_NT)
+	del /Q /F $(subst /,\,$(OBJS)) output/$(EXEC)
+	rmdir output
+else
+	rm -f $(OBJS) output/$(EXEC)
+	rmdir output
+endif
 
-# Regla para compilar los archivos objeto
+# Rule to compile object files
 output/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $<  -o $@
 
-output/%.o: ListaEnlazada/%.cpp
-	$(CXX) $(CXXFLAGS) -c $<  -o $@
-
-output/%.o: Barco/%.cpp
+output/%.o: BST/%.cpp
 	$(CXX) $(CXXFLAGS) -c $<  -o $@
 
 .PHONY: clean run output

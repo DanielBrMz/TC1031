@@ -1,5 +1,6 @@
-#include <Nodo.h>
+#include "Nodo.h"
 
+#pragma once
 class NodoFila {
 public:
     Nodo *nodo;
