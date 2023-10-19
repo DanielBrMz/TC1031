@@ -89,16 +89,13 @@ bool BST::ancestors(Nodo *raiz, int dato){
 }
 
 int BST::whatlevelamI(Nodo *nodo, int data, int nivel){
-  if (nodo == NULL)
-      return -1;
+  if (nodo == NULL) return -1;
 
-  if (nodo->data == data)
-      return nivel;
+  if (nodo->data == data) return nivel;
 
   int nivelInferior = whatlevelamI(nodo->izquierda, data, nivel + 1);
 
-  if (nivelInferior != -1)
-      return nivelInferior;
+  if (nivelInferior != -1) return nivelInferior;
 
   nivelInferior = whatlevelamI(nodo->derecha, data, nivel + 1);
 
