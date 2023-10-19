@@ -44,17 +44,17 @@
 int main() {
     BST bst;
     Nodo* raiz = new Nodo();
-    raiz->data = 6;
+    raiz->data = 12;
     raiz->izquierda = new Nodo();
-    raiz->izquierda->data = 3;
+    raiz->izquierda->data = 6;
     raiz->derecha = new Nodo();
-    raiz->derecha->data = 8;
+    raiz->derecha->data = 16;
     raiz->derecha->derecha = new Nodo();
-    raiz->derecha->derecha->data = 9;
+    raiz->derecha->derecha->data = 18;
     bst.raiz = raiz;
 
     // Llamada a las funciones para cada nodo
-    int nodos[] = {3, 6, 8, 9};
+    int nodos[] = {6, 12, 16, 18};
     for (int i = 0; i < 4; i++) {
         std::cout << "Nodo: " << nodos[i] << std::endl;
         std::cout << "Altura: " << bst.height(bst.raiz) << std::endl;
