@@ -17,29 +17,30 @@
  - empty O(1)
  - size O(1)
 
- Autor: Yair Salvador Beltran Rios
- Matricula: A01254673
+ Autor: Daniel Alfredo Barreras Meraz / Yair Salvador Beltran Rios
+ Matricula: A01254805 / A01254673
  Fecha: 12 de octubre de 2023
 */
 
 /*
- Compilacion y ejecucion:
- $ find . -type f -name "*.cpp" | xargs g++ -o output
-$ ./output
+ Compilacion:
+    make
+ Ejecucion:
+    make run
 */
 
-int main()
-{
-    /* 
+int main() {
+   /* 
     Crearemos el siguiente arbol binario como ejemplo
-               71
+               85
             /      \
-           31      14
-          /  \    /  \
-         13  20  7   11
-        /  \
-       12   7
-    */
+           45      22
+          /  \    /  
+         19  30  9   
+        /  \     
+       17   8    
+*/
+
 
     priority_queue queue;
 
