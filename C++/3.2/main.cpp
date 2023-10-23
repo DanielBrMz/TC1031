@@ -30,72 +30,68 @@
 */
 
 int main() {
-   /* 
-    Crearemos el siguiente arbol binario como ejemplo
-               85
-            /      \
-           45      22
-          /  \    /  
-         19  30  9   
-        /  \     
-       17   8    
+  /*
+   Crearemos el siguiente arbol binario como ejemplo
+              85
+           /      \
+          45      22
+         /  \    /
+        19  30  9
+       /  \
+      17   8
 */
 
+  priority_queue queue;
 
-    priority_queue queue;
+  queue.push(85);
+  queue.push(9);
+  queue.push(22);
+  queue.push(15);
+  queue.push(45);
+  queue.push(19);
+  queue.push(30);
+  queue.push(8);
+  queue.push(17);
 
-    queue.push(71);
-    queue.push(7);
-    queue.push(14);
-    queue.push(11);
-    queue.push(31);
-    queue.push(13);
-    queue.push(20);
-    queue.push(7);
-    queue.push(12);
+  std::cout << "Fila incial: ";
+  queue.print();
+  std::cout << "---------------------------------------------" << std::endl;
 
+  std::cout << "Prueba 1" << std::endl;
+  std::cout << "Funcion: push" << std::endl;
+  std::cout << "Input: " << 516 << std::endl;
+  std::cout << "Fila antes: ";
+  queue.print();
+  queue.push(516);
+  std::cout << "Fila despues: ";
+  queue.print();
+  std::cout << "---------------------------------------------" << std::endl;
 
-    std::cout << "Queue incial: ";
-    queue.print();
-    std::cout << "---------------------------------------------" << std::endl;
+  std::cout << "Prueba 2" << std::endl;
+  std::cout << "Funcion: pop" << std::endl;
+  std::cout << "Fila antes: ";
+  queue.print();
+  queue.pop();
+  std::cout << "Fila despues: ";
+  queue.print();
+  std::cout << "---------------------------------------------" << std::endl;
 
-    std::cout << "Prueba 1" << std::endl;
-    std::cout << "Funcion: push" << std::endl;
-    std::cout << "Input: " << 918 << std::endl;
-    std::cout << "Queue antes: ";
-    queue.print();
-    queue.push(918);
-    std::cout << "Queue despues: ";
-    queue.print();
-    std::cout << "---------------------------------------------" << std::endl;
+  std::cout << "Prueba 3" << std::endl;
+  std::cout << "Funcion: top" << std::endl;
+  std::cout << "Fila: ";
+  queue.print();
+  std::cout << "Top: " << queue.top() << std::endl;
+  std::cout << "---------------------------------------------" << std::endl;
 
-    std::cout << "Prueba 2" << std::endl;
-    std::cout << "Funcion: pop" << std::endl;
-    std::cout << "Queue antes: ";
-    queue.print();
-    queue.pop();
-    std::cout << "Queue despues: ";
-    queue.print();
-    std::cout << "---------------------------------------------" << std::endl;
-    
-    std::cout << "Prueba 3" << std::endl;
-    std::cout << "Funcion: top" << std::endl;
-    std::cout << "Queue: ";
-    queue.print();
-    std::cout << "Top: " << queue.top() << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
+  std::cout << "Prueba 4" << std::endl;
+  std::cout << "Funcion: empty y size" << std::endl;
 
-    std::cout << "Prueba 4" << std::endl;
-    std::cout << "Funcion: empty y size" << std::endl;
-    for (int i=0;i < 3;i++){
-        queue.pop();
-    }
-    std::cout << "Queue: ";
-    queue.print();
-    std::cout << "Size: " << queue.size() << std::endl;
-    std::cout << std::boolalpha;
-    std::cout << "Esta vacia?: " << queue.empty() << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
+  std::cout << "Fila: ";
+  queue.print();
+  std::cout << "Size: " << queue.size() << std::endl;
+  std::cout << std::boolalpha;
+  std::cout << "Esta vacia?: " << queue.empty() << std::endl;
+  std::cout << "---------------------------------------------" << std::endl;
 
-    return 0;
+  return 0;
 }
