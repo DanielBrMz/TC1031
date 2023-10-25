@@ -61,9 +61,6 @@ void priority_queue::pop() {
     return;
 }
 
-
-
-
 int priority_queue::top() {
     // Checar si el heap esta vacio
     if (this->empty()) {

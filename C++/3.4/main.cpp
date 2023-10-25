@@ -4,6 +4,37 @@
 #include <sstream>
 #include "PriorityQueue/priority_queue.h"
 
+/*
+ Este programa utiliza un min_heap para implementar una priority queue
+ El programa lee varios archivos de entrada con los casos de prueba
+ los archivos de texto contienen un numero N que indica el numero de
+ elementos que se deben insertar en la priority queue, seguido de N
+ numeros que se insertaran en la priority queue.
+ El programa puede realizar las funciones push, pop, top, empty y size
+ y calcular el numero de comparaciones que se realizaron para insertar
+ toodos los elementos en la priority queue.
+*/
+
+/*
+ Complejidad temporal:
+ - push: O(logN)
+ - pop: O(logN)
+ - top: O(1)
+ - empty O(1)
+ - size O(1)
+
+ Autor: Daniel Alfredo Barreras Meraz
+ Matricula: A01254805
+ Fecha: 14 de octubre de 2023
+*/
+
+/*
+ Compilacion:
+    make
+ Ejecucion:
+    make run
+*/
+
 int main() {
     for (int i = 1; i <= 4; i++) {
         std::stringstream ss;
