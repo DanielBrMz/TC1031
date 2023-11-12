@@ -33,8 +33,10 @@ $(EXEC): directories $(SRCS)
 # Regla para ejecutar el programa
 run: $(EXEC)
 ifeq ($(OS),Windows_NT)
+	cls
 	$(subst /,\\,$(OUTDIR))\\$(EXEC)
 else
+	clear
 	./$(OUTDIR)/$(EXEC)
 endif
 

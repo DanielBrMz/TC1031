@@ -1,15 +1,48 @@
 #include "Grafo/Grafo.h"
 #include <vector>
 
+/*
+    Este programa crea cuatro grafos y verifica si son árboles y si son bipartitos.
+    El programa implementa la clase Grafo, que se encuentra en la carpeta Grafo.
+    Este grafo se forma a partir de una matriz de adyacencia y una lista de adyacencia.
+*/
+
+/*
+    Complejidad temporal:
+        - Grafo (constructor): O(V^2)
+        - loadGraph: O(V + E)
+        - addEdge: O(1)
+        - printGraph: O(V^2)
+        - isTree: O(V + E)
+        - isCyclicUtil: O(V + E)
+        - topologicalSort: O(V + E)
+        - topologicalSortUtil: O(V + E)
+        - bipartiteGraph: O(V + E)
+        - isBipartiteUtil: O(V + E)
+    Complejidad espacial:
+        - Grafo (constructor): O(V^2)
+        - loadGraph: O(V + E)
+        - addEdge: O(1)
+        - printGraph: O(V^2)
+        - isTree: O(V)
+        - isCyclicUtil: O(V)
+        - topologicalSort: O(V)
+        - topologicalSortUtil: O(V)
+        - bipartiteGraph: O(V)
+        - isBipartiteUtil: O(V)
+
+        Autor: Daniel Alfredo Barreras Meraz
+        Matricula: A01254805
+        Fecha: 12/11/2023
+*/
+
 int main() {
-    // Crear el primer grafo
+    // Crear el primer grafo (árbol y bipartito)
     // 0---1   2
-    // |       |
-    // 3---4---5
-    // |   |   |
-    // 6---7---8
-    int numVertices1 = 9;
-    std::vector<std::pair<int, int>> arcos1 = {{0, 1}, {3, 4}, {4, 5}, {6, 7}, {7, 8}, {0, 3}, {1, 4}, {2, 5}, {3, 6}, {4, 7}, {5, 8}};
+    //     |   |
+    //     3---4
+    int numVertices1 = 5;
+    std::vector<std::pair<int, int>> arcos1 = {{0, 1}, {1, 3}, {3, 4}, {4, 2}};
     Grafo g1(numVertices1);
     g1.loadGraph(numVertices1, arcos1.size(), arcos1);
     g1.printGraph();
@@ -19,14 +52,12 @@ int main() {
     g1.topologicalSort();
     std::cout << "\n";
 
-    // Crear el segundo grafo
-    // 0   1---2
-    // |   |   |
-    // 3---4---5
-    //     |   |
-    //     6---7
-    int numVertices2 = 8;
-    std::vector<std::pair<int, int>> arcos2 = {{0, 3}, {1, 2}, {1, 4}, {2, 5}, {4, 5}, {4, 6}, {5, 7}, {6, 7}};
+    // Crear el segundo grafo (no árbol y no bipartito)
+    // 0---1---2
+    // |       |
+    // 3-------4
+    int numVertices2 = 5;
+    std::vector<std::pair<int, int>> arcos2 = {{0, 1}, {1, 2}, {2, 4}, {4, 3}, {3, 0}};
     Grafo g2(numVertices2);
     g2.loadGraph(numVertices2, arcos2.size(), arcos2);
     g2.printGraph();
@@ -36,7 +67,7 @@ int main() {
     g2.topologicalSort();
     std::cout << "\n";
 
-    // Crear el tercer grafo
+    // Crear el tercer grafo (no árbol y bipartito)
     // 0---1---2
     // |   |   |
     // 3---4---5
@@ -51,7 +82,7 @@ int main() {
     g3.topologicalSort();
     std::cout << "\n";
 
-    // Crear el cuarto grafo
+    // Crear el cuarto grafo (no árbol y bipartito)
     // 0---1
     // |   |
     // 2---3---4
