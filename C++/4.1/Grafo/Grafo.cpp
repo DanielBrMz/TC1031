@@ -25,6 +25,26 @@ void Grafo::addEdge(int v, int w) {
     listaAdj[w].push_back(v);
 }
 
+void Grafo::printGraph(){
+    std::cout << "Matriz de adyacencia:\n";
+    for (int i = 0; i < V; i++) {
+        std::cout << i << ": ";
+        for (int j = 0; j < V; j++) {
+            std::cout << matrizAdj[i][j] << " ";
+        }
+        std::cout << "\n";
+    }
+
+    std::cout << "\nLista de adyacencia:\n";
+    for (auto i : listaAdj) {
+        std::cout << i.first << ": ";
+        for (auto j : i.second) {
+            std::cout << j << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
 void Grafo::DFS(int inicio) {
     std::vector<bool> visited(V, false);
     DFSUtil(inicio, visited);
