@@ -28,8 +28,9 @@
         Fecha: 12/11/2023
 */
 
-#include "Grafo/Grafo.h"
-#include <vector>
+/*
+    Compilar y ejecutar con make: make run
+*/
 
 int main() {
     // Crear el primer grafo
