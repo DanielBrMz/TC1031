@@ -54,11 +54,8 @@ public:
     // Función auxiliar para verificar si el grafo es bipartito
     bool isBipartiteUtil(int v, std::vector<int>& color);
 
-    // Función para realizar un recorrido DFS
-    void DFS(int inicio);
-
-    // Función para realizar un recorrido BFS
-    void BFS(int inicio);
+    // Funcion para realizar un recorrido DFS con un limite de saltos
+    void DFS_MNP(int inicio, int MNP);
 };
 
 #endif // GRAFO_H

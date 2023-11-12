@@ -50,46 +50,6 @@ void Grafo::printGraph(){
     }
 }
 
-// DFS: Tiempo O(V + E), Espacio O(V)
-void Grafo::DFS(int inicio) {
-    std::vector<bool> visited(V, false); // O(V)
-    DFSUtil(inicio, visited); // O(V + E)
-}
-
-// DFSUtil: Tiempo O(V + E), Espacio O(V)
-void Grafo::DFSUtil(int v, std::vector<bool>& visited) {
-    visited[v] = true; // O(1)
-    std::cout << v << " "; // O(1)
-
-    for (int i = 0; i < V; i++) { // O(V)
-        if (matrizAdj[v][i] == 1 && !visited[i]) { // O(1)
-            DFSUtil(i, visited); // O(V + E)
-        }
-    }
-}
-
-// BFS: Tiempo O(V + E), Espacio O(V)
-void Grafo::BFS(int inicio) {
-    std::vector<bool> visited(V, false); // O(V)
-    std::queue<int> queue; // O(1)
-
-    visited[inicio] = true; // O(1)
-    queue.push(inicio); // O(1)
-
-    while (!queue.empty()) { // O(V)
-        int v = queue.front(); // O(1)
-        std::cout << v << " "; // O(1)
-        queue.pop(); // O(1)
-
-        for (auto i : listaAdj[v]) { // O(E/V)
-            if (!visited[i]) { // O(1)
-                queue.push(i); // O(1)
-                visited[i] = true; // O(1)
-            }
-        }
-    }
-}
-
 // isTree: Tiempo O(V + E), Espacio O(V)
 bool Grafo::isTree() {
     std::vector<bool> visited(V, false); // O(V)
@@ -214,4 +174,44 @@ void Grafo::BFS(int inicio) {
             }
         }
     }
+}
+
+
+// Complejidad total: Tiempo O(V + E), Espacio O(V)
+void Grafo::DFS_MNP(int inicio, int MNP) {
+    std::vector<bool> visited(V, false); // O(V)
+    std::vector<int> visit_count(V, 0); // O(V)
+    std::stack<std::pair<int, int>> stack; // O(1)
+    stack.push(std::make_pair(inicio, MNP)); // O(1)
+
+    // Realiza una búsqueda en profundidad (DFS) teniendo en cuenta el MNP
+    while (!stack.empty()) { // O(V + E)
+        int v = stack.top().first; // O(1)
+        int remaining_MNP = stack.top().second; // O(1)
+        stack.pop(); // O(1)
+
+        // Si el nodo no ha sido visitado y el MNP es mayor que 0, lo visita
+        if (!visited[v] && remaining_MNP > 0) { // O(1)
+            visited[v] = true; // O(1)
+            visit_count[v]++; // O(1)
+
+            // Para cada vecino del nodo, si el vecino no ha sido visitado o su contador de visitas es menor que el MNP, lo agrega a la pila
+            for (auto i : listaAdj[v]) { // O(E)
+                if (!visited[i] || visit_count[i] < MNP) { // O(1)
+                    stack.push(std::make_pair(i, remaining_MNP - 1)); // O(1)
+                }
+            }
+        }
+    }
+
+    int not_reachable = 0; // O(1)
+
+    // Cuenta el número de nodos que no fueron visitados
+    for (int i = 0; i < V; i++) { // O(V)
+        if (!visited[i]) { // O(1)
+            not_reachable++; // O(1)
+        }
+    }
+
+    std::cout << "Desde el puerto " << inicio << " con MNP = " << MNP << ", hay " << not_reachable << " puertos no alcanzables.\n"; // O(1)
 }
