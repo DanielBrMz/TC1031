@@ -1,4 +1,4 @@
-#include "Grafo.h"
+#include "Grafo/Grafo.h"
 #include <vector>
 
 int main() {
