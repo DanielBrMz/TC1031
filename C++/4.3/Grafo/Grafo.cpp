@@ -176,3 +176,42 @@ bool Grafo::isBipartiteUtil(int src, std::vector<int>& colorArr) {
     return true;
 }
 
+// DFS: Tiempo O(V + E), Espacio O(V)
+void Grafo::DFS(int inicio) {
+    std::vector<bool> visited(V, false); // O(V)
+    DFSUtil(inicio, visited); // O(V + E)
+}
+
+// DFSUtil: Tiempo O(V + E), Espacio O(V)
+void Grafo::DFSUtil(int v, std::vector<bool>& visited) {
+    visited[v] = true; // O(1)
+    std::cout << v << " "; // O(1)
+
+    for (int i = 0; i < V; i++) { // O(V)
+        if (matrizAdj[v][i] == 1 && !visited[i]) { // O(1)
+            DFSUtil(i, visited); // O(V + E)
+        }
+    }
+}
+
+// BFS: Tiempo O(V + E), Espacio O(V)
+void Grafo::BFS(int inicio) {
+    std::vector<bool> visited(V, false); // O(V)
+    std::queue<int> queue; // O(1)
+
+    visited[inicio] = true; // O(1)
+    queue.push(inicio); // O(1)
+
+    while (!queue.empty()) { // O(V)
+        int v = queue.front(); // O(1)
+        std::cout << v << " "; // O(1)
+        queue.pop(); // O(1)
+
+        for (auto i : listaAdj[v]) { // O(E/V)
+            if (!visited[i]) { // O(1)
+                queue.push(i); // O(1)
+                visited[i] = true; // O(1)
+            }
+        }
+    }
+}
