@@ -3,3 +3,5 @@ Baldo Scripts
 
 # Dale play y ya
 Skill issue
+
+# Qr rzr up de cotorreo ln 
