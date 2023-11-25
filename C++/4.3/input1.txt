@@ -1,43 +1,20 @@
-30
+16
 Alexandria Algeciras
+Algeciras Ambarli
 Ambarli Antwerp
+Alexandria Balboa
 Balboa Bandar
 Bandar Barcelona
-Algeciras Bremen
-Busan Alexandria
+Antwerp Bremen
 Bremen Busan
-Alexandria Balboa
-Barcelona Balboa
+Algeciras Cai_Mep
 Cai_Mep Callao
-Busan Antwerp
-Ambarli Algeciras
-Busan Balboa
-Cartagena Alexandria
+Ambarli Cartagena
+Barcelona Callao
+Cai_Mep Cartagena
+Callao Charleston
+Cartagena Charleston
 Charleston Busan
-Cai_Mep Chennai
-Charleston Callao
-Algeciras Callao
-Chennai Balboa
-Callao Ambarli
-Cartagena Balboa
-Busan Barcelona
-Ambarli Bremen
-Algeciras Bandar
-Cartagena Antwerp
-Chittagong Ambarli
-Cartagena Callao
-Bremen Cai_Mep
-Algeciras Barcelona
-Cai_Mep Balboa
-11
-Balboa 2
-Ambarli 6
-Balboa 1
-Chennai 7
-Algeciras 4
-Cartagena 2
-Ambarli 9
-Chennai 4
-Alexandria 4
-Barcelona 4
-Balboa 4
+2
+Cai_Mep 2
+Cai_Mep 3
