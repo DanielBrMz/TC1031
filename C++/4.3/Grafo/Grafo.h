@@ -10,7 +10,7 @@ using namespace std;
 
 class Grafo {
 private:
-    map<string, vector<string>> adjList; // Lista de adyacencia para representar el grafo
+    map<string, vector<string>> listaAdy; // Lista de adyacencia para representar el grafo
 
 public:
     void addEdge(string u, string v); // Añade una arista al grafo

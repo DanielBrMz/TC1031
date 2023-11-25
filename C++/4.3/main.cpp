@@ -2,9 +2,9 @@
 #include <fstream>
 #include "Grafo/Grafo.h"
 
-void processFile(ifstream& inputFile, int i) {
+void processFile(std::ifstream& inputFile, int i) {
     if (!inputFile.is_open()) {
-        cout << "Unable to open file input" + to_string(i) + ".txt" << endl;
+        std::cout << "Unable to open file input" + std::to_string(i) + ".txt" << std::endl;
         return;
     }
 
@@ -12,7 +12,7 @@ void processFile(ifstream& inputFile, int i) {
 
     Grafo grafo;
     int NC, NQ;
-    string u, v;
+    std::string u, v;
 
     inputFile >> NC; // Lee el número de conexiones
     for (int j = 0; j < NC; j++) { // Lee las conexiones
@@ -27,7 +27,7 @@ void processFile(ifstream& inputFile, int i) {
 
         // Calcula e imprime el número de puertos no alcanzables
         int unreachable = grafo.unreachablePorts(u, MNP);
-        cout << "Case " << j+1 << ": " << unreachable << " ports not reachable from port " << u << " with MNP = " << MNP << "." << endl;
+        std::cout << "Case " << j+1 << ": " << unreachable << " ports not reachable from port " << u << " with MNP = " << MNP << "." << std::endl;
     }
 
     std::cout << std::endl;
@@ -37,7 +37,7 @@ void processFile(ifstream& inputFile, int i) {
 
 int main() {
     for (int i = 1; i <= 4; i++) { // Para cada archivo de entrada
-        ifstream inputFile("input" + to_string(i) + ".txt"); // Abre el archivo de entrada
+        std::ifstream inputFile("input" + std::to_string(i) + ".txt"); // Abre el archivo de entrada
         processFile(inputFile, i);
     }
 
