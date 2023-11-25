@@ -2,6 +2,32 @@
 #include <iostream>
 #include "HashTable/HashTable.h"
 
+/*
+  Este programa utiliza la clase HashTable para probar los métodos quadratic y chain de la siguiente manera:
+    - Crea cuatro tablas de dispersión
+    - Inserta las llaves 26, 30, 44, 20, 2, 5, 27 en las cuatro tablas
+    - Imprime si cada llave se insertó correctamente y si se encontró en la tabla
+    Se utiliza la estructura de datos HashTable para representar las tablas de dispersión y los métodos quadratic y chain para insertar las llaves.
+    Complejidad Temporal de algoritmos utilizados:
+        - quadratic: O(n), donde n es el tamaño de la tabla.
+        - chain: O(1)
+    Complejidad Espacial de algoritmos utilizados:
+        - quadratic: O(n), donde n es el tamaño de la tabla.
+        - chain: O(1)
+*/
+
+
+/*
+    Autor: Daniel Alfredo Barreras Meraz
+    Matrícula: A01254805
+    Fecha: 13 de noviembre de 2023
+*/
+
+/*
+  Compilar y ejecutar con make:
+    make run
+*/
+
 int main() {
     // Creando cuatro tablas de dispersión
     HashTable ht1(10), ht2(10), ht3(10), ht4(10);
