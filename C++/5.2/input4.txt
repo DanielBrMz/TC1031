@@ -1,0 +1,9 @@
+4 2
+ab 30
+bc 32
+gh 21
+yt 67
+ab ab ab bc fr gh
+.
+yt yt ab bc gh gh
+.
