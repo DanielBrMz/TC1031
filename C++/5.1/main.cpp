@@ -20,7 +20,7 @@
 /*
     Autor: Daniel Alfredo Barreras Meraz
     Matrícula: A01254805
-    Fecha: 13 de noviembre de 2023
+    Fecha: 20 de noviembre de 2023
 */
 
 /*
