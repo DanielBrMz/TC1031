@@ -30,7 +30,7 @@ void Grafo::addEdge(int v, int w) {
 
 // printGraph: Tiempo O(V^2 + E), Espacio O(1)
 void Grafo::printGraph(){
-    std::cout << "Matriz de adyacencia:\n"; // O(1)
+    std::cout << "\nMatriz de adyacencia:\n"; // O(1)
     for (int i = 0; i < V; i++) { // O(V)
         std::cout << i << ": "; // O(1)
         for (int j = 0; j < V; j++) { // O(V)
