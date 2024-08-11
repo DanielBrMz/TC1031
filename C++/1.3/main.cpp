@@ -36,7 +36,7 @@
 */
 
 /*
-    Pasos para compilar y ejecutar uel programa tilizando make:
+    Pasos para compilar y ejecutar el programa utilizando make:
     Compilar: make
     Ejecutar: make run
 */
